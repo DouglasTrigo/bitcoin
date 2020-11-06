@@ -10,6 +10,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,6 +43,7 @@ public class Usuario extends PanacheEntityBase {
     @Username/*Tem que ser String*/
     private String username;
 
+    @Getter(AccessLevel.NONE)
     @Password/*Tem que ser String e obriga a incriptar a senha*/
     private String password;
 
@@ -59,5 +61,10 @@ public class Usuario extends PanacheEntityBase {
             return "admin";
         }
         return "user";
+    }
+
+    @JsonbTransient//Quando for serializar, o campo de senha vai ser ignorado
+    public String getPassword() {
+        return password;
     }
 }

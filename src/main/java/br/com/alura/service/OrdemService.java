@@ -8,6 +8,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.core.SecurityContext;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -31,4 +32,7 @@ public class OrdemService {
         ordemRepository.persist(ordem);
     }
 
+    public List<Ordem> listar() {
+        return ordemRepository.listAll();
+    }
 }

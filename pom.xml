@@ -65,6 +65,20 @@
             <artifactId>quarkus-resteasy-jsonb</artifactId>
         </dependency>
 
+        <!-- Para fazer mock com active records, é necessário a dependência
+         abaixo, pois o mockito por si só não consegue mockar métodos
+         estátivos-->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-panache-mock</artifactId>
+        </dependency>
+
+        <!-- A dependência abaixo, é para ajudar a testar o repository-->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5-mockito</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
